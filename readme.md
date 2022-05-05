@@ -1,7 +1,7 @@
 # TrueLayer Backend Engineer Challenge:
 
 ## The challenge:
-See [TrueLayer - Backend Engineer Payments Challenge.pdf](https://github.com/adamfriswell/TrueLayerBackendEngineerChallenge/blob/master/readme.md) file
+See [TrueLayer - Backend Engineer Payments Challenge.pdf](https://github.com/adamfriswell/TrueLayerBackendEngineerChallenge/blob/master/TrueLayerBackendEngineerChallenge.csproj) file
 
 ## To run:
 * Install the [dotnet sdk](https://dotnet.microsoft.com/en-us/download), I'm running v5.0.407 on my Macbook
