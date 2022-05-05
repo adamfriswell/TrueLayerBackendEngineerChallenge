@@ -1,7 +1,8 @@
 # TrueLayer Backend Engineer Challenge:
 
 ## The challenge:
-See [TrueLayer - Backend Engineer Payments Challenge.pdf](https://github.com/adamfriswell/TrueLayerBackendEngineerChallenge/blob/master/TrueLayer%20-%20Backend%20Engineer%20Payments%20Challenge.pdf) file
+Write a RESTful Pokemon API with a GET method that returns a Shakespearean description for a given Pokemon name.
+See [TrueLayer - Backend Engineer Payments Challenge.pdf](https://github.com/adamfriswell/TrueLayerBackendEngineerChallenge/blob/master/TrueLayer%20-%20Backend%20Engineer%20Payments%20Challenge.pdf) file for full details.
 
 ## To run:
 * Install the [dotnet sdk](https://dotnet.microsoft.com/en-us/download), I'm running v5.0.407 on my Macbook
