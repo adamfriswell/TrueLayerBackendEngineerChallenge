@@ -19,5 +19,6 @@ Here I am going to detail how I went about implementing my solution to this chal
 * I added XUnit and related nuget package needed to write some unit tests, and made an empty `PokemonControllerTests.cs` class just to make sure the tests would run properly.
     * Using `dotnet test` to run the tests in the terminal.
     * I ran into the following error "CS0017: Program has more than one entry point defined." and found that the [solution](https://stackoverflow.com/questions/11747761/i-added-a-new-class-to-my-project-and-got-an-error-saying-program-main-has-mo) was to add `<GenerateProgramFile>false</GenerateProgramFile>` to the .csproj file.
-
-* My first consideration for what this GET method should be doing is calling the prescribed pokemon api to check that the given Pokemon name is actually a valid Pokemon.
+* My first consideration for what this GET method should be doing is calling the prescribed PokeAPI to check that the given Pokemon name is actually a valid Pokemon. 
+    * So I just called the `pokemon/{pokemonName}' endpoint of the PokeAPI and ensured this gave a valid response.
+* Next I wanted to get a description of the Pokemon in question to be able to translate into Shakespearean text.

@@ -1,6 +1,7 @@
-﻿using System;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using TrueLayerBackendEngineerChallenge.Services;
 
 namespace TrueLayerBackendEngineerChallenge.Controllers
 {
@@ -9,17 +10,20 @@ namespace TrueLayerBackendEngineerChallenge.Controllers
     public class PokemonController : ControllerBase
     {
 
-        private readonly ILogger<PokemonController> _logger;
-
-        public PokemonController(ILogger<PokemonController> logger)
+        private readonly HttpClient client = new HttpClient();
+        private PokeApiService pokeApiService;
+        public PokemonController()
         {
-            _logger = logger;
+            this.pokeApiService = new PokeApiService();
         }
 
         [HttpGet]
-        public void Get()
+        [Route("{pokemonName}")]
+        public async Task<bool> Get(string pokemonName)
         {
-            throw new NotImplementedException();
+            var isValidPokemon = await this.pokeApiService.IsValidPokemon(this.client, pokemonName);
+            
+            return isValidPokemon;
         }
     }
 }
