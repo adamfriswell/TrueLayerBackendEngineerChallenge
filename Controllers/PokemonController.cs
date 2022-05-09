@@ -14,16 +14,16 @@ namespace TrueLayerBackendEngineerChallenge.Controllers
         private PokeApiService pokeApiService;
         public PokemonController()
         {
-            this.pokeApiService = new PokeApiService();
+            this.pokeApiService = new PokeApiService(this.client);
         }
 
         [HttpGet]
         [Route("{pokemonName}")]
-        public async Task<bool> Get(string pokemonName)
+        public async Task<string> Get(string pokemonName)
         {
             var isValidPokemon = await this.pokeApiService.IsValidPokemon(this.client, pokemonName);
-            
-            return isValidPokemon;
+            var description = await this.pokeApiService.GetPokemonDescription(this.client, pokemonName);
+            return description;
         }
     }
 }
