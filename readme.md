@@ -26,3 +26,4 @@ Here I am going to detail how I went about implementing my solution to this chal
     * The PokeAPI stores these different descriptions (it calls them `flavor_text`) under the `flavor_text_entries` of the `pokemon-species/{pokemonName}` call
     * The description used in the example for the task came from the ruby version, thus I'm using this version of the description if it exists, and if not the first version returned which is in English (as not all `flavor_text`'s that are returned are in English)
 * I realised my above point about calling `pokemon/{pokemonName}` to make sure the pokemon name was valid was unnecessary, as the `pokemon-species` call would return a "Not Found" body if it doesn't exist, so I removed this.
+* I then called the Fun Translations API `translate/shakespear` endpoint to convert this description into its shakesperean version
