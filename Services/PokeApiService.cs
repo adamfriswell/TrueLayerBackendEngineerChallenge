@@ -3,22 +3,22 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using TrueLayerBackendEngineerChallenge.Models;
 
 namespace TrueLayerBackendEngineerChallenge.Services {
 
     public class PokeApiService {
-        private string PokeApiUri = "https://pokeapi.co/api/v2/";
-        public PokeApiService(HttpClient client)
+        private HttpClient client = new HttpClient();
+        
+        public PokeApiService()
         {
-            client.BaseAddress = new Uri(this.PokeApiUri);
+            client.BaseAddress = new Uri("https://pokeapi.co/api/v2/");
         }
 
-        public async Task<string> GetPokemonDescription(HttpClient client, string pokemonName){
+        public async Task<string> GetPokemonDescription(string pokemonName){
             //Call the 'pokemon-species/{pokemonName}' endpoint and read the content of the response as a string
-            var response = await client.GetAsync($"pokemon-species/{pokemonName}");
+            var response = await this.client.GetAsync($"pokemon-species/{pokemonName}");
             if(!response.IsSuccessStatusCode){
                 throw new Exception("This Pokemom does not exist.");
             }

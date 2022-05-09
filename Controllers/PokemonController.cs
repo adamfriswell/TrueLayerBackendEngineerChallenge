@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TrueLayerBackendEngineerChallenge.Services;
 
@@ -9,19 +8,17 @@ namespace TrueLayerBackendEngineerChallenge.Controllers
     [Route("[controller]")]
     public class PokemonController : ControllerBase
     {
-
-        private readonly HttpClient client = new HttpClient();
         private PokeApiService pokeApiService;
         public PokemonController()
         {
-            this.pokeApiService = new PokeApiService(this.client);
+            this.pokeApiService = new PokeApiService();
         }
 
         [HttpGet]
         [Route("{pokemonName}")]
         public async Task<string> Get(string pokemonName)
         {
-            var description = await this.pokeApiService.GetPokemonDescription(this.client, pokemonName);
+            var description = await this.pokeApiService.GetPokemonDescription(pokemonName);
             return description;
         }
     }
