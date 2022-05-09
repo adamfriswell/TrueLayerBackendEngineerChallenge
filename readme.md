@@ -2,7 +2,7 @@
 
 ## The challenge:
 Write a RESTful Pokemon API with a GET method that returns a Shakespearean description for a given Pokemon name.
-See [TrueLayer - Backend Engineer Payments Challenge.pdf](https://github.com/adamfriswell/TrueLayerBackendEngineerChallenge/blob/master/TrueLayer%20-%20Backend%20Engineer%20Payments%20Challenge.pdf) file for full details.
+See [TrueLayer - Backend Engineer Payments Challenge.pdf](https://github.com/adamfriswell/TrueLayerBackendEngineerChallenge/blob/master/TrueLayer%20-%20Backend%20Engineer%20Payments%20Challenge.pdf) for full details.
 API's used:
 * [Pokemon API](https://pokeapi.co/)
 * [Shakespear Translator](https://funtranslations.com/api/shakespeare)
@@ -27,3 +27,8 @@ Here I am going to detail how I went about implementing my solution to this chal
     * The description used in the example for the task came from the ruby version, thus I'm using this version of the description if it exists, and if not the first version returned which is in English (as not all `flavor_text`'s that are returned are in English)
 * I realised my above point about calling `pokemon/{pokemonName}` to make sure the pokemon name was valid was unnecessary, as the `pokemon-species` call would return a "Not Found" body if it doesn't exist, so I removed this.
 * I then called the Fun Translations API `translate/shakespear` endpoint to convert this description into its shakesperean version
+* To finish off I added some unit tests for the `PokemonController`, `PokeApiService` and `FunTranslationsApiService`
+
+## Areas for improvement:
+* More error handling, and handling more gracefully
+* More unit tests
