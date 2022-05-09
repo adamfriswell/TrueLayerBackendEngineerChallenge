@@ -19,6 +19,9 @@ namespace TrueLayerBackendEngineerChallenge.Services {
 
             var response = await this.client.GetAsync($"shakespeare.json?text={parsedDescription}");
             if(!response.IsSuccessStatusCode){
+                if(response.StatusCode == System.Net.HttpStatusCode.TooManyRequests){
+                    throw new Exception("Too many requests, FunTranslationsAPI is rate limited to 5 per hour.");
+                }
                 throw new Exception("Could not convert to Shakesperean text.");
             }
             string responseBody = await response.Content.ReadAsStringAsync();
