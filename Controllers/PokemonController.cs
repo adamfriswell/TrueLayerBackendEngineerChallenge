@@ -21,7 +21,6 @@ namespace TrueLayerBackendEngineerChallenge.Controllers
         [Route("{pokemonName}")]
         public async Task<string> Get(string pokemonName)
         {
-            var isValidPokemon = await this.pokeApiService.IsValidPokemon(this.client, pokemonName);
             var description = await this.pokeApiService.GetPokemonDescription(this.client, pokemonName);
             return description;
         }

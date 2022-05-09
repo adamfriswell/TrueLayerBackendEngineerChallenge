@@ -16,14 +16,12 @@ namespace TrueLayerBackendEngineerChallenge.Services {
             client.BaseAddress = new Uri(this.PokeApiUri);
         }
 
-        public async Task<bool> IsValidPokemon(HttpClient client, string pokemonName){
-            var response = await client.GetAsync($"pokemon/{pokemonName}");
-            return response.IsSuccessStatusCode;
-        }
-
         public async Task<string> GetPokemonDescription(HttpClient client, string pokemonName){
             //Call the 'pokemon-species/{pokemonName}' endpoint and read the content of the response as a string
             var response = await client.GetAsync($"pokemon-species/{pokemonName}");
+            if(!response.IsSuccessStatusCode){
+                throw new Exception("This Pokemom does not exist.");
+            }
             string responseBody = await response.Content.ReadAsStringAsync();
 
             //Parse the response body to a JObejct, find the flavor_text_entries node and turn into its model
