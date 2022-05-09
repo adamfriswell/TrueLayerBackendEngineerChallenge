@@ -32,7 +32,7 @@ namespace TrueLayerBackendEngineerChallenge.Services {
             //Find the flaour_text of the "ruby" version entry (if exists as this was used in example, if not take first), remove new line characters
             var flavour = flavourTextEntries.Where(f => f.version.name == "ruby").SingleOrDefault();
             if(flavour == null){
-                flavour = flavourTextEntries[0];
+                flavour = flavourTextEntries.Where(f => f.language.name == "en").FirstOrDefault();
             }
             var rawDescription = flavour.flavor_text;
             var description = Regex.Replace(rawDescription, @"\t|\n|\r|\f", " ");

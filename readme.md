@@ -24,5 +24,5 @@ Here I am going to detail how I went about implementing my solution to this chal
     * This proved more difficult than expeced, as I would have assumed there was a description field on the `pokemon/{pokemonName}` call
     * [It turns out](https://github.com/PokeAPI/pokeapi/issues/107) there are different "flavours" of Pokemon from different versions of the game, with different descriptions
     * The PokeAPI stores these different descriptions (it calls them `flavor_text`) under the `flavor_text_entries` of the `pokemon-species/{pokemonName}` call
-    * The description used in the example for the task came from the ruby version, thus I'm using this version of the description if it exists, and if not the first version returned
+    * The description used in the example for the task came from the ruby version, thus I'm using this version of the description if it exists, and if not the first version returned which is in English (as not all `flavor_text`'s that are returned are in English)
 * I realised my above point about calling `pokemon/{pokemonName}` to make sure the pokemon name was valid was unnecessary, as the `pokemon-species` call would return a "Not Found" body if it doesn't exist, so I removed this.
