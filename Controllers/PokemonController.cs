@@ -9,9 +9,12 @@ namespace TrueLayerBackendEngineerChallenge.Controllers
     public class PokemonController : ControllerBase
     {
         private PokeApiService pokeApiService;
+        private FunTranslationsApiService funTranslationsApiService;
+
         public PokemonController()
         {
             this.pokeApiService = new PokeApiService();
+            this.funTranslationsApiService = new FunTranslationsApiService();
         }
 
         [HttpGet]
@@ -19,7 +22,8 @@ namespace TrueLayerBackendEngineerChallenge.Controllers
         public async Task<string> Get(string pokemonName)
         {
             var description = await this.pokeApiService.GetPokemonDescription(pokemonName);
-            return description;
+            var shakespeareanDescription = await this.funTranslationsApiService.GetShakespeareanDescription(description);
+            return shakespeareanDescription;
         }
     }
 }
