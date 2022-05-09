@@ -8,8 +8,7 @@ namespace TrueLayerBackendEngineerChallenge.Services {
 
     public class FunTranslationsApiService {
         private HttpClient client = new HttpClient();
-        public FunTranslationsApiService()
-        {
+        public FunTranslationsApiService(){
             client.BaseAddress = new Uri("https://api.funtranslations.com/translate/");
         }
 
