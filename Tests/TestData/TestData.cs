@@ -3,7 +3,6 @@ using TrueLayerBackendEngineerChallenge.Models;
 
 namespace TrueLayerBackendEngineerChallenge.Tests {
     public static class TestData {
-
         public const string BlackVersionFlavourText = "On raconte que la flamme du Dracaufeu s'intensifie après un combat difficile.";
         public const string BlackVersionLanguage = "fr";
         public const string BlackVersionName = "black";
@@ -13,6 +12,7 @@ namespace TrueLayerBackendEngineerChallenge.Tests {
         public const string CrystalVersionName = "crystal";
 
         public const string RubyVersionFlavourText = "CHARIZARD flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns its fiery breath on any opponent weaker than itself.";
+        public const string RubyVersionFlavourTextTranslated = "Charizard flies 'round the sky in search of powerful opponents. 't breathes fire of such most wondrous heat yond 't melts aught. However,  't nev'r turns its fiery breath on any opponent weaker than itself.";
         public const string RubyVersionLanguage = "en";
         public const string RubyVersionName = "ruby";
 
