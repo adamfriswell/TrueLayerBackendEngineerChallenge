@@ -15,10 +15,14 @@ API's used:
 ## Implementation notes:
 Here I am going to detail how I went about implementing my solution to this challenge:
 * First I made a new dotnet webapi project, by running the `dotnet new webapi` command in the terminal, I then committed this to a new GitHub repo
-* Then I removed the boilerplate WeatherForecast code that was generated with the dotnet project
 * I added XUnit and related nuget package needed to write some unit tests, and made an empty `PokemonControllerTests.cs` class just to make sure the tests would run properly.
     * Using `dotnet test` to run the tests in the terminal.
     * I ran into the following error "CS0017: Program has more than one entry point defined." and found that the [solution](https://stackoverflow.com/questions/11747761/i-added-a-new-class-to-my-project-and-got-an-error-saying-program-main-has-mo) was to add `<GenerateProgramFile>false</GenerateProgramFile>` to the .csproj file.
 * My first consideration for what this GET method should be doing is calling the prescribed PokeAPI to check that the given Pokemon name is actually a valid Pokemon. 
     * So I just called the `pokemon/{pokemonName}' endpoint of the PokeAPI and ensured this gave a valid response.
 * Next I wanted to get a description of the Pokemon in question to be able to translate into Shakespearean text.
+    * This proved more difficult than expeced, as I would have assumed there was a description field on the `pokemon/{pokemonName}` call
+    * [It turns out](https://github.com/PokeAPI/pokeapi/issues/107) there are different "flavours" of Pokemon from different versions of the game, with different descriptions
+    * The PokeAPI stores these different descriptions (it calls them `flavor_text`) under the `flavor_text_entries` of the `pokemon-species/{pokemonName}` call
+    * The description used in the example for the task came from the ruby version, thus I'm using this version of the description if it exists, and if not the first version returned
+* I realised my above point about calling `pokemon/{pokemonName}` to make sure the pokemon name was valid was unnecessary, as the `pokemon-species` call would return a "Not Found" body if it doesn't exist, so I removed this.
