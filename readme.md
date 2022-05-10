@@ -9,7 +9,11 @@ API's used:
 
 ## To run:
 * Install the [dotnet sdk](https://dotnet.microsoft.com/en-us/download)
-* Serve the site by running `dotnet run` in the terminal
+    * The project targets the .net6.0 framework so the current latest version (v6.0.202 at time of writting) is needed
+* Download the project from [GitHub](https://github.com/adamfriswell/TrueLayerBackendEngineerChallenge)
+* Open the command line/terminal and change directory into the TrueLayerBackendEngineerChallenge folder
+* Serve the site by running `dotnet run`
+* You'll be reached by a 404 error and may have to click "Proceed to localhost (unsafe)"
 * Can call API 2 ways
     * Navigate to /swagger endpoint to see the Swagger generated UI, then can use the "Try it out" button to add a pokemonName
     * Append "/pokemon/{pokemonName}" to the localhost URL (https://localhost:5001/)
@@ -37,3 +41,4 @@ Here I am going to detail how I went about implementing my solution to this chal
     * Wider range of tests to test more edge cases
     * Read Json from test date files rather than storing as const string in `TestData.cs`, then can assert more than just not null in `PokeApiService_GetResponse_Success` and `FunTranslationsApiService_GetResponse_Success`
 * Look into including Dockerfile as mentioned in task spec
+* Fix the 404 you get on serving the site, change so it runs to https://localhost:5001/swagger by default
