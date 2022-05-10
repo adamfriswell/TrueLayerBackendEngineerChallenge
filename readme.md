@@ -13,12 +13,12 @@ API's used:
 * Download the project from [GitHub](https://github.com/adamfriswell/TrueLayerBackendEngineerChallenge)
 * Open the command line/terminal and change directory into the TrueLayerBackendEngineerChallenge folder
 * Serve the site by running `dotnet run`
-* You'll be reached by a 404 error and may have to click "Proceed to localhost (unsafe)"
-* Can call API 2 ways
-    * Navigate to /swagger endpoint to see the Swagger generated UI, then can use the "Try it out" button to add a pokemonName
+* You'll see a 404 error and may have to click "Proceed to localhost (unsafe)"
+* Ypu can call API in 2 ways
+    * Navigate to the /swagger endpoint to see the Swagger generated UI, then you can use the "Try it out" button to add a pokemonName to the GET endpoint
     * Append "/pokemon/{pokemonName}" to the localhost URL (https://localhost:5001/)
 * To run the tests run `dotnet test` in the terminal
-    * Please note if playing with API and running unit tests multiple times then the `PokemonController_Get_Success` and `FunTranslationsApiService_GetResponse_Success` tests may fail with a error of "Too Many Requests", as the FunTranslations API is rate limited to 5 calls per hour.
+    * Please note if playing with the API and running the unit tests multiple times then the `PokemonController_Get_Success` and `FunTranslationsApiService_GetResponse_Success` tests may fail with a error of "Too Many Requests", as the FunTranslations API is rate limited to 5 calls per hour.
 
 ## Implementation notes:
 Here I am going to detail how I went about implementing my solution to this challenge:
