@@ -10,13 +10,13 @@ namespace TrueLayerBackendEngineerChallenge.Services {
 
     public class PokeApiService {
         private HttpClient client = new HttpClient();
-        
+
         public PokeApiService(){
             client.BaseAddress = new Uri("https://pokeapi.co/api/v2/");
         }
 
         public async Task<string> GetPokemonDescription(string pokemonName){
-            var responseBody = await GetResponse(pokemonName);
+            var responseBody = await this.GetResponse(pokemonName);
             var flavourTextEntries = ParseResponseToModel(responseBody);
             var description = GetDescription(flavourTextEntries);
             return description;
@@ -28,22 +28,22 @@ namespace TrueLayerBackendEngineerChallenge.Services {
             if (!response.IsSuccessStatusCode){
                 throw new Exception("This Pokemon does not exist.");
             }
-            string responseBody = await response.Content.ReadAsStringAsync();
+            var responseBody = await response.Content.ReadAsStringAsync();
             return responseBody;
         }
 
-        public static flavor_text_entries[] ParseResponseToModel(string responseBody){
+        public static flavor_text_entry[] ParseResponseToModel(string responseBody){
             //Parse the response body to a JObject, find the flavor_text_entries node and turn into its model
             var responseJObject = JObject.Parse(responseBody);
             var flavourTextEntriesJToken = responseJObject["flavor_text_entries"];
             if(flavourTextEntriesJToken == null){
                 throw new Exception("Cannot find 'flavour_text_entries' node.");
             }
-            var flavourTextEntries = flavourTextEntriesJToken.ToObject<flavor_text_entries[]>();
+            var flavourTextEntries = flavourTextEntriesJToken.ToObject<flavor_text_entry[]>();
             return flavourTextEntries;
         }
 
-        public static string GetDescription(flavor_text_entries[] flavourTextEntries){
+        public static string GetDescription(flavor_text_entry[] flavourTextEntries){
             //Find the flavour_text of the "ruby" version entry (if exists as this was used in example, if not take first English version), remove new line characters
             if(flavourTextEntries == null){
                 throw new Exception("No flavour text entries supplied.");

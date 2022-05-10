@@ -21,8 +21,8 @@ namespace TrueLayerBackendEngineerChallenge.Tests {
         public const string FunTranslationRubyDescriptionExpectedResult = "{\"success\":{\"total\":1},\"contents\":{\"translated\":\"Charizard flies 'round the sky in search of powerful opponents. 't breathes fire of such most wondrous heat yond 't melts aught. However,  't nev'r turns its fiery breath on any opponent weaker than itself.\",\"text\":\"CHARIZARD flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns its fiery breath on any opponent weaker than itself.\",\"translation\":\"shakespeare\"}}";
         public const string FunTranslationResultWithNoTranslation = "{\"contents\":{\"translation\":\"shakespeare\"}}";
 
-        public static flavor_text_entries GetBlackVersionFlavorTextEntryObject() {
-            return new flavor_text_entries{
+        public static flavor_text_entry GetBlackVersionFlavorTextEntryObject() {
+            return new flavor_text_entry{
                     flavor_text = TestData.BlackVersionFlavourText,
                     language = new Language{ 
                         name = TestData.BlackVersionLanguage
@@ -33,8 +33,8 @@ namespace TrueLayerBackendEngineerChallenge.Tests {
                 };
         }
 
-        public static flavor_text_entries GetCrystalVersionFlavorTextEntryObject() {
-            return new flavor_text_entries{
+        public static flavor_text_entry GetCrystalVersionFlavorTextEntryObject() {
+            return new flavor_text_entry{
                     flavor_text = TestData.CrystalVersionFlavourText,
                     language = new Language{ 
                         name = TestData.CrystalVersionLanguage
@@ -45,8 +45,8 @@ namespace TrueLayerBackendEngineerChallenge.Tests {
                 };
         }
 
-        public static flavor_text_entries GetRubyVersionFlavorTextEntryObject() {
-            return new flavor_text_entries{
+        public static flavor_text_entry GetRubyVersionFlavorTextEntryObject() {
+            return new flavor_text_entry{
                     flavor_text = TestData.RubyVersionFlavourText,
                     language = new Language{ 
                         name = TestData.RubyVersionLanguage
@@ -57,23 +57,23 @@ namespace TrueLayerBackendEngineerChallenge.Tests {
                 };
         }
 
-        public static List<flavor_text_entries> GetFlavorTextEntriesObject(){
-            return new List<flavor_text_entries>{
+        public static List<flavor_text_entry> GetFlavorTextEntriesObject(){
+            return new List<flavor_text_entry>{
                 GetBlackVersionFlavorTextEntryObject(),
                 GetCrystalVersionFlavorTextEntryObject(),
                 GetRubyVersionFlavorTextEntryObject()
             };
         }
 
-        public static List<flavor_text_entries> GetFlavorTextEntriesObjectWithoutRubyVersion(){
-            return new List<flavor_text_entries>{
+        public static List<flavor_text_entry> GetFlavorTextEntriesObjectWithoutRubyVersion(){
+            return new List<flavor_text_entry>{
                 GetBlackVersionFlavorTextEntryObject(),
                 GetCrystalVersionFlavorTextEntryObject()
             };
         }
 
-        public static List<flavor_text_entries> GetFlavorTextEntriesObjectWithBlackVersionOnly(){
-            return new List<flavor_text_entries>{
+        public static List<flavor_text_entry> GetFlavorTextEntriesObjectWithBlackVersionOnly(){
+            return new List<flavor_text_entry>{
                 GetBlackVersionFlavorTextEntryObject()
             };
         }

@@ -23,13 +23,13 @@ namespace TrueLayerBackendEngineerChallenge.Tests {
         }
 
         [Fact]
-        public void FunTranslationsApiService_GetTranslation_Failure_NoContent() {
+        public void FunTranslationsApiService_GetTranslation_Failure_NoContents() {
             var mockResponse = TestData.UnexpectedJson;
 
             Action act = () => FunTranslationsApiService.GetTranslation(mockResponse);
 
             Exception exception = Assert.Throws<Exception>(act);
-            Assert.Equal("Cannot find 'content' node.", exception.Message);
+            Assert.Equal("Cannot find 'contents' node.", exception.Message);
         }
 
         [Fact]

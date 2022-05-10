@@ -8,13 +8,14 @@ namespace TrueLayerBackendEngineerChallenge.Services {
 
     public class FunTranslationsApiService {
         private HttpClient client = new HttpClient();
+        
         public FunTranslationsApiService(){
             client.BaseAddress = new Uri("https://api.funtranslations.com/translate/");
         }
 
         public async Task<string> GetShakespeareanDescription(string description){
             var parsedDescription = Regex.Replace(description, " ", "%20");
-            string responseBody = await GetResponse(parsedDescription);
+            var responseBody = await GetResponse(parsedDescription);
             var translation = GetTranslation(responseBody);
             return translation;
         }
@@ -29,17 +30,17 @@ namespace TrueLayerBackendEngineerChallenge.Services {
                 }
                 throw new Exception("Could not convert to Shakesperean text.");
             }
-            string responseBody = await response.Content.ReadAsStringAsync();
+            var responseBody = await response.Content.ReadAsStringAsync();
             return responseBody;
         }
 
         public static string GetTranslation(string responseBody){
             var responseJObject = JObject.Parse(responseBody);
-            var content = responseJObject["contents"];
-            if(content == null){
-                throw new Exception("Cannot find 'content' node.");
+            var contents = responseJObject["contents"];
+            if(contents == null){
+                throw new Exception("Cannot find 'contents' node.");
             }
-            var translated = content["translated"];
+            var translated = contents["translated"];
             if(translated == null){
                 throw new Exception("Cannot find 'translated' node.");
             }

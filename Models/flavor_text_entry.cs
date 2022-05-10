@@ -1,7 +1,6 @@
 namespace TrueLayerBackendEngineerChallenge.Models{
-    public class flavor_text_entries{
+    public class flavor_text_entry{
         public string flavor_text { get; set; }  
-
         public Language language {get; set;}
         public Version version {get; set;}
     }
