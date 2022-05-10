@@ -42,3 +42,5 @@ Here I am going to detail how I went about implementing my solution to this chal
     * Read Json from test date files rather than storing as const string in `TestData.cs`, then can assert more than just not null in `PokeApiService_GetResponse_Success` and `FunTranslationsApiService_GetResponse_Success`
 * Look into including Dockerfile as mentioned in task spec
 * Fix the 404 you get on serving the site, change so it runs to https://localhost:5001/swagger by default
+* Implement some caching on the API calls
+   * Would be especially helpful for FunTranslation API due to rate limiting
