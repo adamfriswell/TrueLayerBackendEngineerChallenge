@@ -37,7 +37,7 @@ namespace TrueLayerBackendEngineerChallenge.Services {
             var responseJObject = JObject.Parse(responseBody);
             var flavourTextEntriesJToken = responseJObject["flavor_text_entries"];
             if(flavourTextEntriesJToken == null){
-                throw new Exception("Cannot find flavour_text_entries node.");
+                throw new Exception("Cannot find 'flavour_text_entries' node.");
             }
             var flavourTextEntries = flavourTextEntriesJToken.ToObject<flavor_text_entries[]>();
             return flavourTextEntries;

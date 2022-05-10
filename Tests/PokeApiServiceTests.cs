@@ -43,9 +43,9 @@ namespace TrueLayerBackendEngineerChallenge.Tests {
             var mockResponse = TestData.UnexpectedJson;
 
             Action act = () => PokeApiService.ParseResponseToModel(mockResponse);
+            
             Exception exception = Assert.Throws<Exception>(act);
-
-            Assert.Equal("Cannot find flavour_text_entries node.", exception.Message);
+            Assert.Equal("Cannot find 'flavour_text_entries' node.", exception.Message);
         }
 
         [Fact]
@@ -71,8 +71,8 @@ namespace TrueLayerBackendEngineerChallenge.Tests {
         [Fact]
         public void PokeApiService_GetDescription_NoEntries() {
             Action act = () => PokeApiService.GetDescription(null);
-            Exception exception = Assert.Throws<Exception>(act);
 
+            Exception exception = Assert.Throws<Exception>(act);
             Assert.Equal("No flavour text entries supplied.", exception.Message);
         }
 
@@ -82,8 +82,8 @@ namespace TrueLayerBackendEngineerChallenge.Tests {
             var entriesArray = entries.ToArray(); 
 
             Action act = () => PokeApiService.GetDescription(entriesArray);
+            
             Exception exception = Assert.Throws<Exception>(act);
-
             Assert.Equal("There are no English descriptions for this Pokemon.", exception.Message);
         }
     }
