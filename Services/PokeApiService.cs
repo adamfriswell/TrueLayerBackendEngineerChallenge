@@ -44,7 +44,7 @@ namespace TrueLayerBackendEngineerChallenge.Services {
         }
 
         public static string GetDescription(flavor_text_entries[] flavourTextEntries){
-            //Find the flavour_text of the "ruby" version entry (if exists as this was used in example, if not take first), remove new line characters
+            //Find the flavour_text of the "ruby" version entry (if exists as this was used in example, if not take first English version), remove new line characters
             if(flavourTextEntries == null){
                 throw new Exception("No flavour text entries supplied.");
             }

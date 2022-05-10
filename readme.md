@@ -21,7 +21,7 @@ Here I am going to detail how I went about implementing my solution to this chal
 * First I made a new dotnet webapi project, by running the `dotnet new webapi` command in the terminal
 * I added XUnit and related nuget package needed to write some unit tests, and made an empty `PokemonControllerTests.cs` class just to make sure the tests would run properly.
 * My first consideration for what this GET method should be doing is calling the prescribed PokeAPI to check that the given Pokemon name is actually a valid Pokemon. 
-    * So I just called the `pokemon/{pokemonName}' endpoint of the PokeAPI and ensured this gave a valid response.
+    * So I just called the `pokemon/{pokemonName}` endpoint of the PokeAPI and ensured this gave a valid response.
 * Next I wanted to get a description of the Pokemon in question to be able to translate into Shakespearean text.
     * This proved more difficult than expeced, as I would have assumed there was a description field on the `pokemon/{pokemonName}` call
     * [It turns out](https://github.com/PokeAPI/pokeapi/issues/107) there are different "flavours" of Pokemon from different versions of the game, with different descriptions
