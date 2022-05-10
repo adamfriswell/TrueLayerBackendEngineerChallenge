@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TrueLayerBackendEngineerChallenge.Services;
 
 namespace TrueLayerBackendEngineerChallenge.Controllers{
@@ -19,7 +20,13 @@ namespace TrueLayerBackendEngineerChallenge.Controllers{
         public async Task<string> Get(string pokemonName){
             var description = await this.pokeApiService.GetPokemonDescription(pokemonName);
             var shakespeareanDescription = await this.funTranslationsApiService.GetShakespeareanDescription(description);
-            return shakespeareanDescription;
+
+            var resultObject = new {
+                name = pokemonName,
+                description = shakespeareanDescription
+            };
+            var result = JsonConvert.SerializeObject(resultObject);
+            return result;
         }
     }
 }
