@@ -8,7 +8,7 @@ API's used:
 * [FunTranslations API - Shakespear Translator](https://funtranslations.com/api/shakespeare)
 
 ## To run:
-* Install the [dotnet sdk](https://dotnet.microsoft.com/en-us/download), I'm running v5.0.407 on my Macbook
+* Install the [dotnet sdk](https://dotnet.microsoft.com/en-us/download)
 * Serve the site by running `dotnet run` in the terminal
 * Can call API 2 ways
     * Navigate to /swagger endpoint to see the Swagger generated UI, then can use the "Try it out" button to add a pokemonName
