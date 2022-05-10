@@ -14,7 +14,7 @@ API's used:
 * Open the command line/terminal and change directory into the TrueLayerBackendEngineerChallenge folder
 * Serve the site by running `dotnet run`
 * You'll see a 404 error and may have to click "Proceed to localhost (unsafe)"
-* Ypu can call API in 2 ways
+* You can call API in 2 ways
     * Navigate to the /swagger endpoint to see the Swagger generated UI, then you can use the "Try it out" button to add a pokemonName to the GET endpoint
     * Append "/pokemon/{pokemonName}" to the localhost URL (https://localhost:5001/)
 * To run the tests run `dotnet test` in the terminal
